@@ -1,0 +1,59 @@
+{
+  "strings": {
+    "snLoginBtnCaption": "Log in",
+    "snLoginInProgressBtnCaption": "Logging in",
+      
+    "unknown_user": "unknown",
+      
+    "status_loggingIn": "logging in..",
+    "status_skinning": "skinning..",
+    "status_readingFriends": "friends..",
+    "status_getReady": "get ready!",
+      
+    "status_loggedOut": "logged out.",
+    "status_failedToLogIn": "failure.",
+      
+    "status_buying": "buying..",
+    "status_thanks": "thank you!",
+    "status_canceled": "canceled.",
+    "status_new_stuff": "new stuff!",
+    "status_saving": "saving...",
+      
+    "meter": "m",
+    "centi": "c",
+    "kilo": "k",
+    "mega": "M",
+    "giga": "G",
+    "tera": "T",
+    "wtf": "inf",
+      
+    "ask_message": "Hey! I need pills for my little Dong.",
+    
+    "gift_message_in": "Hey, take these free pills to get bigger!",
+    "gift_message_out": "Hey, take these free pills to get bigger!",
+    
+    "brag_message_in": "But I gift you a pill. Darest compete me?",
+    "brag_message_out": "I've beaten you!",
+    
+    "challenge_accepted_message": "Challenge accepted! I'm about to pass your score. Get ready!",  
+    
+    "brag_title": "I've beaten you!",
+    
+    "btn_accept_and_gift": "accept & gift",
+    "btn_gift": "gift",
+      
+    "eyes": "eyes",
+    "coins": "coins",
+    "pills": "pills",
+    "clothes": "clothes",
+    "goggles": "goggles",
+    "hats": "hats",
+    
+    "item_in_use": "in use",
+    "buy": "buy",
+    "use": "use",
+      
+    "notificationMessage": "Hey! It's time to dispel stress and ding your little Dong. We need to grow!",
+    "notificationBtnCaption": "Let's have some fun."
+  }
+}

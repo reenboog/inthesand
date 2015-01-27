@@ -1,0 +1,57 @@
+{
+    "layoutBaseDimension": "width",
+    
+    "designResolutionEntries":
+    [
+        {
+            "width": 0,
+            "height": 0,
+            "designWidth": 384,
+            "designHeight": 576,
+            "paths": []
+        },
+     
+        {
+            "width": 640,
+            "height": 960,
+            "designWidth": 384,
+            "designHeight": 576,
+            "paths":
+            [
+                "Res/640x960/avatars/",
+                "Res/640x960/"
+            ]
+        },
+     
+        {
+            "width": 768,
+            "height": 1024,
+            "designWidth": 384,
+            "designHeight": 512,
+            "paths":
+            [
+                "Res/768x1024/avatars/",
+                "Res/768x1024/"
+            ]
+        },
+     
+        {
+            "width": 1536,
+            "height": 2048,
+            "designWidth": 384,
+            "designHeight": 512,
+            "paths":
+            [
+                "Res/1536x2048/avatars/",
+                "Res/1536x2048/"
+            ]
+        }
+    ],
+                                
+    "sharedPaths":
+    [
+        "Res/shared/audio/",
+        "Res/shared/strings/",
+        "Res/shared/animations/"
+    ]
+}
