@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+// represents the main menu
+
 class GameLayer: public cocos2d::Layer {
 public:
     GameLayer();
