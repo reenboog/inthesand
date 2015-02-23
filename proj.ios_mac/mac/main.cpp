@@ -28,7 +28,11 @@
 USING_NS_CC;
 
 int main(int argc, char *argv[]) {
-    auto glview = GLView::createWithRect("match3_blitz", {0, 0, 320, 480});
+    GLContextAttrs glContextAttrs = {8, 8, 8, 8, 24, 8};
+    
+    GLView::setGLContextAttrs(glContextAttrs);
+    
+    auto glview = GLViewImpl::createWithRect("in the sand", {0, 0, 480, 720});
     Director::getInstance()->setOpenGLView(glview);
     
     AppDelegate app;
