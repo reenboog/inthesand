@@ -25,7 +25,11 @@ public:
     void setCursor(int cursor);
     void onPageBtnPressed();
     
+    void popOut();
+    
     CREATE_FUNC(GameLayer);
+private:
+    void openPageScene(int idx);
 private:
     cocos2d::Sprite *_back;
     
@@ -38,6 +42,7 @@ private:
     
     std::vector<cocos2d::Sprite*> _cursorsSprites;
     cocos2d::Label *_pageBtnTitle;
+    
 };
 
 #endif // __HELLOWORLD_SCENE_H__

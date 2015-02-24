@@ -3,6 +3,8 @@
 #include "SimpleAudioEngine.h"
 #include "Localized.h"
 
+#include "Page0Scene.h"
+
 #define zBack 0
 
 #define kSwipeMinimalLength 50
@@ -176,5 +178,33 @@ void GameLayer::setCursor(int cursor) {
 }
 
 void GameLayer::onPageBtnPressed() {
+    _pageBtn->setEnabled(false);
+
+    this->popOut();
+}
+
+void GameLayer::popOut() {
+    _pageBtn->runAction(EaseBackIn::create(ScaleTo::create(0.35f, 0)));
+    _currentPage->runAction(Sequence::create(DelayTime::create(0.1),
+                                             EaseBackIn::create(ScaleTo::create(0.3, 0)),
+                                             NULL));
     
+    this->runAction(Sequence::create(DelayTime::create(0.3),
+                                     CallFunc::create([this]() {
+        this->openPageScene(_cursorIndex);
+    }), NULL));
+}
+
+void GameLayer::openPageScene(int idx) {
+    Scene *scene = nullptr;
+    switch(idx) {
+        case 0:
+            scene = Page0Layer::scene();
+//            break;
+//            
+//        default:
+//            break;
+    }
+    
+    Director::getInstance()->replaceScene(scene);
 }
