@@ -15,9 +15,9 @@
         <meta-data android:name="android.app.lib_name"
 	              android:value="cocos2dcpp" />
 
-        <activity android:name="com.reenboog.template.MainActivity"
+        <activity android:name="com.reenboog.inthesand.MainActivity"
                   android:label="@string/app_name"
-                  android:screenOrientation="landscape"
+                  android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation">
 
