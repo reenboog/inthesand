@@ -4,6 +4,7 @@
 #include "Localized.h"
 
 #include "Page0Scene.h"
+#include "Page1Scene.h"
 
 #define zBack 0
 
@@ -200,10 +201,14 @@ void GameLayer::openPageScene(int idx) {
     switch(idx) {
         case 0:
             scene = Page0Layer::scene();
-//            break;
-//            
-//        default:
-//            break;
+            break;
+        case 1:
+            scene = Page1Layer::scene();
+            break;
+
+        default:
+            scene = Page0Layer::scene();
+            break;
     }
     
     Director::getInstance()->replaceScene(scene);
