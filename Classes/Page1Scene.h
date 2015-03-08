@@ -31,6 +31,7 @@ private:
     cocos2d::Sprite *_bottom;
     
     cocos2d::Menu *_menu;
+    cocos2d::Menu *_abcMenu;
     cocos2d::MenuItemImage *_backBtn;
 };
 

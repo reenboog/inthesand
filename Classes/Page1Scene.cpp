@@ -14,8 +14,9 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-#define kSpeechEnabledTag 1
-#define kSpeechDisabledTag 2
+using std::vector;
+
+#define kNumOfLetters 26
 
 Page1Layer::~Page1Layer() {
     
@@ -29,6 +30,8 @@ Page1Layer::Page1Layer() {
     
     _top = nullptr;
     _bottom = nullptr;
+    
+    _abcMenu = nullptr;
 }
 
 Scene* Page1Layer::scene() {
@@ -99,7 +102,42 @@ bool Page1Layer::init() {
 
     }
     
-    //CC_CALLBACK_1(InAppsMenuNode::onPurchaseBtnPressed, this));
+    // buttons
+    Vector<MenuItem*> characters;
+    
+    // align items
+    int numofRows = 9;
+    int numOfColumns = 3;
+    
+    Sprite *btn = Sprite::create("btn_abc.png");
+    
+    Point initialPos = {0, numofRows * btn->getContentSize().height};
+    
+    for(int i = 0; i < kNumOfLetters; ++i) {
+        MenuItemImage *btn = MenuItemImage::create("btn_abc.png", "btn_abc_on.png", CC_CALLBACK_1(Page1Layer::onCharacterBtnPressed, this));
+        btn->setTag(i);
+        btn->setAnchorPoint({0, 1});
+
+        characters.pushBack(btn);
+        
+        Sprite *image = Sprite::create(StringUtils::format("abc_%i.png", i));
+        btn->addChild(image);
+        
+        image->setPosition(btn->getContentSize().width * 0.5f, btn->getContentSize().height * 0.5f);
+        
+        btn->setPosition({(i % numOfColumns) * btn->getContentSize().width, initialPos.y - btn->getContentSize().height * (i / numOfColumns)});
+    }
+    
+    _abcMenu = Menu::createWithArray(characters);
+    this->addChild(_abcMenu);
+    
+    //_abcMenu->alignItemsInColumns(3, 3, 3, 3, 3, 3, 3, 3, 2, NULL);
+
+    _abcMenu->setPosition({visibleSize.width * 0.5f - (btn->getContentSize().width * numOfColumns) / 2.0f,
+        visibleSize.height * 0.55f - (btn->getContentSize().height * numofRows) / 2.0f + visibleSize.height});
+    
+    _abcMenu->runAction(Sequence::create(EaseBackOut::create(MoveBy::create(0.15, {0, -visibleSize.height})),
+                                         NULL));
     
     return true;
 }
@@ -116,8 +154,13 @@ void Page1Layer::onBackBtnPressed() {
 void Page1Layer::popOut() {
     SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
 //    _text->runAction(FadeOut::create(0.1f));
 //    _mount->runAction(ScaleTo::create(0.2, 1.5));
+    
+    _abcMenu->runAction(Sequence::create(EaseBackOut::create(MoveBy::create(0.15, {0, visibleSize.height})),
+                                         NULL));
     
     this->runAction(Sequence::create(DelayTime::create(0.12),
                                      CallFunc::create([this]() {
