@@ -5,6 +5,7 @@
 
 #include "Page0Scene.h"
 #include "Page1Scene.h"
+#include "Page2Scene.h"
 
 #define zBack 0
 
@@ -204,6 +205,9 @@ void GameLayer::openPageScene(int idx) {
             break;
         case 1:
             scene = Page1Layer::scene();
+            break;
+        case 2:
+            scene = Page2Layer::scene();
             break;
 
         default:
