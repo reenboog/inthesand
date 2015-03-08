@@ -143,7 +143,10 @@ bool Page1Layer::init() {
 }
 
 void Page1Layer::onCharacterBtnPressed(Ref *btn) {
-    //int tag = (static_cast<Node*>(btn)->getTag());
+    int tag = (static_cast<Node*>(btn)->getTag());
+    
+    SimpleAudioEngine::getInstance()->stopAllEffects();
+    SimpleAudioEngine::getInstance()->playEffect(StringUtils::format("abc_name_sound_word_%i.mp3", tag).c_str());
 }
 
 void Page1Layer::onBackBtnPressed() {
