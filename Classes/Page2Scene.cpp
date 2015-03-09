@@ -17,6 +17,8 @@ using namespace CocosDenshion;
 using std::vector;
 using std::string;
 
+#define kNumOfSlides 4
+
 Page2Layer::~Page2Layer() {
     
 }
@@ -36,6 +38,7 @@ Page2Layer::Page2Layer() {
     _mount = nullptr;
     
     _currentSlide = 0;
+    _slideNode = nullptr;
 }
 
 Scene* Page2Layer::scene() {
@@ -119,11 +122,11 @@ bool Page2Layer::init() {
         _mount = Sprite::create("reading_obj_mount.png");
         this->addChild(_mount);
         
-        _mount->setAnchorPoint({1, 0});
-        _mount->setPosition({0, _backBtn->getPosition().y + _backBtn->getContentSize().height});
+        _mount->setAnchorPoint({0.5, 0});
+        _mount->setPosition({-_mount->getContentSize().width * 0.5f, _backBtn->getPosition().y + _backBtn->getContentSize().height});
         
         _mount->runAction(Sequence::create(DelayTime::create(0.1),
-                                           MoveBy::create(0.1, {visibleSize.width, 0}),
+                                           MoveTo::create(0.1, {visibleSize.width * 0.5f, _mount->getPositionY()}),
                                            NULL));
     }
     
@@ -178,23 +181,44 @@ bool Page2Layer::init() {
                                                  NULL));
     }
     
+    // slides
+    {
+        _slideNode = Node::create();
+        _mount->addChild(_slideNode);
+        
+        _slideNode->setPosition({0, 0});
+    }
+    
+    this->openSlide(0);
+    
     return true;
 }
 
 void Page2Layer::onBackBtnPressed() {
+    SimpleAudioEngine::getInstance()->stopAllEffects();
+
     _currentSlide--;
+    
+    _nextBtn->setEnabled(true);
     
     if(_currentSlide < 0) {
         _menu->setEnabled(false);
         this->popOut();
     } else {
-        // show slide i
+        this->openSlide(_currentSlide);
     }
-    
 }
 
 void Page2Layer::onNextBtnPressed() {
-    //
+    SimpleAudioEngine::getInstance()->stopAllEffects();
+    
+    _currentSlide++;
+
+    if(_currentSlide == kNumOfSlides - 1) {
+        _nextBtn->setEnabled(false);
+    }
+    
+    this->openSlide(_currentSlide);
 }
 
 void Page2Layer::popOut() {
@@ -212,5 +236,118 @@ void Page2Layer::popOut() {
 }
 
 void Page2Layer::onCharacterBtnPressed(cocos2d::Ref *btn) {
+    int tag = (static_cast<Node*>(btn)->getTag());
+    
+    SimpleAudioEngine::getInstance()->stopAllEffects();
+    SimpleAudioEngine::getInstance()->playEffect(StringUtils::format("abc_name_sound_%i.mp3", tag).c_str());
+
+}
+
+void Page2Layer::openSlide(int slide) {
+    SimpleAudioEngine::getInstance()->stopAllEffects();
+    
+    _slideNode->removeAllChildren();
+    
+    switch(slide) {
+        case 0:
+            this->openSlide0();
+            break;
+        case 1:
+            this->openSlide1();
+        break;
+        case 2:
+            this->openSlide2();
+            break;
+        case 3:
+            this->openSlide3();
+            break;
+    }
+}
+
+void Page2Layer::openSlide0() {
+    Sprite *obj = Sprite::create("reading_slide_0.png");
+    
+    _slideNode->addChild(obj);
+    
+    obj->setPosition({_mount->getContentSize().width * 0.5f, _mount->getContentSize().height * 0.6f});
+    obj->setScale(0);
+    
+    obj->runAction(Sequence::create(DelayTime::create(0.8),
+                                    EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                    CallFunc::create([=]() {
+        SimpleAudioEngine::getInstance()->playEffect("reading_slide_0.mp3");
+    }), NULL));
+    
+    
+    {
+        Sprite *b = Sprite::create("ch_small_1.png");
+        _slideNode->addChild(b);
+        
+        Sprite *i = Sprite::create("ch_small_8.png");
+        _slideNode->addChild(i);
+        
+        Sprite *n = Sprite::create("ch_small_13.png");
+        _slideNode->addChild(n);
+        
+        b->setPosition({_mount->getContentSize().width * 0.5f - b->getContentSize().width * 2.5f,
+            _mount->getContentSize().height * 0.15f
+        });
+        
+        i->setPosition({_mount->getContentSize().width * 0.5f, _mount->getContentSize().height * 0.15f});
+        
+        n->setPosition({_mount->getContentSize().width * 0.5f + b->getContentSize().width * 2.5f,
+            _mount->getContentSize().height * 0.15f
+        });
+        
+        b->setScale(0);
+        i->setScale(0);
+        n->setScale(0);
+        
+        b->runAction(Sequence::create(DelayTime::create(1.9),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_1.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      NULL));
+        
+        i->runAction(Sequence::create(DelayTime::create(2.5),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_8.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      NULL));
+        
+        n->runAction(Sequence::create(DelayTime::create(3.1),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_13.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      DelayTime::create(0.7),
+                                      CallFunc::create([=]() {
+            SimpleAudioEngine::getInstance()->playEffect("reading_slide_0.mp3");
+            
+            b->runAction(MoveBy::create(0.2, {b->getContentSize().width * 1.5f, 0}));
+            n->runAction(MoveBy::create(0.2, {-b->getContentSize().width * 1.5f, 0}));
+        }), CallFunc::create([this]() {
+            if(_nextBtn->isVisible() == false) {
+                _nextBtn->setVisible(true);
+                
+                _nextBtn->runAction(MoveBy::create(0.1, {0, _nextBtn->getContentSize().height}));
+            }
+        }), NULL));
+    }
+    
+    
+}
+
+void Page2Layer::openSlide1() {
+    
+}
+
+void Page2Layer::openSlide2() {
+    
+}
+
+void Page2Layer::openSlide3() {
     
 }

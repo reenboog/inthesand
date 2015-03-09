@@ -50,6 +50,7 @@
                                 
     "sharedPaths":
     [
+        "Res/shared/audio/reading",
         "Res/shared/audio/abc_name_sound",
         "Res/shared/audio/abc_name_sound_word",
         "Res/shared/audio/abc_sound",

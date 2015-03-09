@@ -22,9 +22,16 @@ public:
     void onNextBtnPressed();
     void onCharacterBtnPressed(cocos2d::Ref *btn);
     
+    void openSlide(int slide);
+    
     CREATE_FUNC(Page2Layer);
 private:
     void popOut();
+    
+    void openSlide0();
+    void openSlide1();
+    void openSlide2();
+    void openSlide3();
 private:
     cocos2d::Sprite *_back;
     
@@ -38,6 +45,8 @@ private:
     cocos2d::Menu *_menu;
     cocos2d::MenuItemImage *_backBtn;
     cocos2d::MenuItemImage *_nextBtn;
+    
+    cocos2d::Node *_slideNode;
     
     int _currentSlide;
 };
