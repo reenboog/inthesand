@@ -336,8 +336,6 @@ void Page2Layer::openSlide0() {
             }
         }), NULL));
     }
-    
-    
 }
 
 void Page2Layer::openSlide1() {
@@ -515,5 +513,69 @@ void Page2Layer::openSlide2() {
 }
 
 void Page2Layer::openSlide3() {
+    Sprite *obj = Sprite::create("reading_slide_3.png");
     
+    _slideNode->addChild(obj);
+    
+    obj->setPosition({_mount->getContentSize().width * 0.5f, _mount->getContentSize().height * 0.6f});
+    obj->setScale(0);
+    
+    obj->runAction(Sequence::create(DelayTime::create(0.8),
+                                    EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                    CallFunc::create([=]() {
+        SimpleAudioEngine::getInstance()->playEffect("reading_slide_3.mp3");
+    }), NULL));
+    
+    
+    {
+        Sprite *b = Sprite::create("ch_small_1.png");
+        _slideNode->addChild(b);
+        
+        Sprite *a = Sprite::create("ch_small_0.png");
+        _slideNode->addChild(a);
+        
+        Sprite *g = Sprite::create("ch_small_6.png");
+        _slideNode->addChild(g);
+        
+        b->setPosition({_mount->getContentSize().width * 0.5f - b->getContentSize().width * 2.5f,
+            _mount->getContentSize().height * 0.15f
+        });
+        
+        a->setPosition({_mount->getContentSize().width * 0.5f, _mount->getContentSize().height * 0.15f});
+        
+        g->setPosition({_mount->getContentSize().width * 0.5f + b->getContentSize().width * 2.5f,
+            _mount->getContentSize().height * 0.15f
+        });
+        
+        b->setScale(0);
+        a->setScale(0);
+        g->setScale(0);
+        
+        b->runAction(Sequence::create(DelayTime::create(2.1),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_1.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      NULL));
+        
+        a->runAction(Sequence::create(DelayTime::create(2.7),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_0.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      NULL));
+        
+        g->runAction(Sequence::create(DelayTime::create(3.3),
+                                      CallFunc::create([=]() {
+                                        SimpleAudioEngine::getInstance()->playEffect("abc_sound_6.mp3");
+                                      }),
+                                      EaseBackOut::create(ScaleTo::create(0.15, 1)),
+                                      DelayTime::create(0.7),
+                                      CallFunc::create([=]() {
+            SimpleAudioEngine::getInstance()->playEffect("reading_slide_3.mp3");
+            
+            b->runAction(MoveBy::create(0.2, {b->getContentSize().width * 1.5f, 0}));
+            g->runAction(MoveBy::create(0.2, {-b->getContentSize().width * 1.5f, 0}));
+        }), NULL));
+    }
 }
