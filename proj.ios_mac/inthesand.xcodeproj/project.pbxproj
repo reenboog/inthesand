@@ -63,6 +63,8 @@
 		B8AEEFFF1AAC995100C6313C /* Page2Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFFC1AAC995100C6313C /* Page2Scene.cpp */; };
 		B8AEF0021AAECC0200C6313C /* Page3Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEF0001AAECC0100C6313C /* Page3Scene.cpp */; };
 		B8AEF0031AAECC0200C6313C /* Page3Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEF0001AAECC0100C6313C /* Page3Scene.cpp */; };
+		B8AEF0061AB0B21500C6313C /* Page4Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEF0041AB0B21500C6313C /* Page4Scene.cpp */; };
+		B8AEF0071AB0B21500C6313C /* Page4Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEF0041AB0B21500C6313C /* Page4Scene.cpp */; };
 		B8C067431A9C34EB00721C0A /* Page0Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C067411A9C34EB00721C0A /* Page0Scene.cpp */; };
 		B8C067441A9C34EB00721C0A /* Page0Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8C067411A9C34EB00721C0A /* Page0Scene.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -165,6 +167,8 @@
 		B8AEEFFD1AAC995100C6313C /* Page2Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page2Scene.h; sourceTree = "<group>"; };
 		B8AEF0001AAECC0100C6313C /* Page3Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page3Scene.cpp; sourceTree = "<group>"; };
 		B8AEF0011AAECC0200C6313C /* Page3Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page3Scene.h; sourceTree = "<group>"; };
+		B8AEF0041AB0B21500C6313C /* Page4Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page4Scene.cpp; sourceTree = "<group>"; };
+		B8AEF0051AB0B21500C6313C /* Page4Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page4Scene.h; sourceTree = "<group>"; };
 		B8C067411A9C34EB00721C0A /* Page0Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page0Scene.cpp; sourceTree = "<group>"; };
 		B8C067421A9C34EB00721C0A /* Page0Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page0Scene.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -317,6 +321,8 @@
 				B8AEEFFD1AAC995100C6313C /* Page2Scene.h */,
 				B8AEF0001AAECC0100C6313C /* Page3Scene.cpp */,
 				B8AEF0011AAECC0200C6313C /* Page3Scene.h */,
+				B8AEF0041AB0B21500C6313C /* Page4Scene.cpp */,
+				B8AEF0051AB0B21500C6313C /* Page4Scene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -513,6 +519,7 @@
 				B82D04701A641E8600BCEF26 /* Shared.cpp in Sources */,
 				B82D046E1A641E8600BCEF26 /* Localized.cpp in Sources */,
 				B8AEF0021AAECC0200C6313C /* Page3Scene.cpp in Sources */,
+				B8AEF0061AB0B21500C6313C /* Page4Scene.cpp in Sources */,
 				B82D046A1A641E8600BCEF26 /* GameConfig.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -529,6 +536,7 @@
 				B8C067441A9C34EB00721C0A /* Page0Scene.cpp in Sources */,
 				B82D04711A641E8600BCEF26 /* Shared.cpp in Sources */,
 				B82D046F1A641E8600BCEF26 /* Localized.cpp in Sources */,
+				B8AEF0071AB0B21500C6313C /* Page4Scene.cpp in Sources */,
 				B8AEEFF81AAB639100C6313C /* Page1Scene.cpp in Sources */,
 				B8AEEFFF1AAC995100C6313C /* Page2Scene.cpp in Sources */,
 				B82D046B1A641E8600BCEF26 /* GameConfig.cpp in Sources */,
