@@ -57,6 +57,8 @@
 		B82D04711A641E8600BCEF26 /* Shared.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B82D04661A641E8600BCEF26 /* Shared.cpp */; };
 		B82D04731A641EB400BCEF26 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = B82D04721A641EB400BCEF26 /* Res */; };
 		B82D04741A641EB400BCEF26 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = B82D04721A641EB400BCEF26 /* Res */; };
+		B84C68561AB83FC000299E90 /* Page6Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84C68541AB83FC000299E90 /* Page6Scene.cpp */; };
+		B84C68571AB83FC000299E90 /* Page6Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84C68541AB83FC000299E90 /* Page6Scene.cpp */; };
 		B8AEEFF71AAB639100C6313C /* Page1Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */; };
 		B8AEEFF81AAB639100C6313C /* Page1Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */; };
 		B8AEEFFE1AAC995100C6313C /* Page2Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFFC1AAC995100C6313C /* Page2Scene.cpp */; };
@@ -161,6 +163,8 @@
 		B82D04661A641E8600BCEF26 /* Shared.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shared.cpp; sourceTree = "<group>"; };
 		B82D04671A641E8600BCEF26 /* Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
 		B82D04721A641EB400BCEF26 /* Res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Res; path = ../Res; sourceTree = "<group>"; };
+		B84C68541AB83FC000299E90 /* Page6Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page6Scene.cpp; sourceTree = "<group>"; };
+		B84C68551AB83FC000299E90 /* Page6Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page6Scene.h; sourceTree = "<group>"; };
 		B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page1Scene.cpp; sourceTree = "<group>"; };
 		B8AEEFF61AAB639100C6313C /* Page1Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1Scene.h; sourceTree = "<group>"; };
 		B8AEEFFC1AAC995100C6313C /* Page2Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page2Scene.cpp; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				B8AEF0011AAECC0200C6313C /* Page3Scene.h */,
 				B8AEF0041AB0B21500C6313C /* Page4Scene.cpp */,
 				B8AEF0051AB0B21500C6313C /* Page4Scene.h */,
+				B84C68541AB83FC000299E90 /* Page6Scene.cpp */,
+				B84C68551AB83FC000299E90 /* Page6Scene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -523,6 +529,7 @@
 				B82D046A1A641E8600BCEF26 /* GameConfig.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				B84C68561AB83FC000299E90 /* Page6Scene.cpp in Sources */,
 				B8AEEFF71AAB639100C6313C /* Page1Scene.cpp in Sources */,
 				B8C067431A9C34EB00721C0A /* Page0Scene.cpp in Sources */,
 				B82D046C1A641E8600BCEF26 /* GameLayer.cpp in Sources */,
@@ -533,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84C68571AB83FC000299E90 /* Page6Scene.cpp in Sources */,
 				B8C067441A9C34EB00721C0A /* Page0Scene.cpp in Sources */,
 				B82D04711A641E8600BCEF26 /* Shared.cpp in Sources */,
 				B82D046F1A641E8600BCEF26 /* Localized.cpp in Sources */,
