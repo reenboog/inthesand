@@ -50,6 +50,7 @@
                                 
     "sharedPaths":
     [
+        "Res/shared/audio/story",
         "Res/shared/audio/color",
         "Res/shared/audio/drag",
         "Res/shared/audio/reading",

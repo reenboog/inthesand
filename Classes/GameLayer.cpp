@@ -9,11 +9,12 @@
 #include "Page3Scene.h"
 #include "Page4Scene.h"
 #include "Page6Scene.h"
+#include "Page7Scene.h"
 
 #define zBack 0
 
 #define kSwipeMinimalLength 50
-#define kNumOfPages 7
+#define kNumOfPages 6
 
 using namespace cocos2d;
 
@@ -204,7 +205,7 @@ void GameLayer::openPageScene(int idx) {
     Scene *scene = nullptr;
     switch(idx) {
         case 0:
-            scene = Page0Layer::scene();
+            scene = Page7Layer::scene();
             break;
         case 1:
             scene = Page1Layer::scene();
@@ -215,10 +216,10 @@ void GameLayer::openPageScene(int idx) {
         case 3:
             scene = Page3Layer::scene();
             break;
-        case 5:
+        case 4:
             scene = Page4Layer::scene();
             break;
-        case 6:
+        case 5:
             scene = Page6Layer::scene();
             break;
 
