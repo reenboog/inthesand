@@ -21,6 +21,7 @@ public:
     
     virtual bool init();
     
+    void onMenuBtnPressed();
     void onBackBtnPressed();
     void onNextBtnPressed();
     void onMuteBtnPressed();
@@ -58,6 +59,7 @@ private:
     
     cocos2d::Menu *_menu;
     cocos2d::MenuItemImage *_backBtn;
+    cocos2d::MenuItemImage *_menuBtn;
     cocos2d::MenuItemImage *_muteBtn;
     cocos2d::MenuItemImage *_nextBtn;
     

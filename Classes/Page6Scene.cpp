@@ -33,7 +33,7 @@ Page6Layer::Page6Layer() {
     _back = nullptr;
     
     _menu = nullptr;
-    _backBtn = nullptr;
+    //_backBtn = nullptr;
     
     _top = nullptr;
     _bottom = nullptr;
@@ -47,6 +47,8 @@ Page6Layer::Page6Layer() {
     _currentLetter = nullptr;
     
     _bBtn = nullptr;
+    
+    _menuBtn = nullptr;
 }
 
 Scene* Page6Layer::scene() {
@@ -76,7 +78,9 @@ bool Page6Layer::init() {
         Size backSize = _back->getContentSize();
         
         _back->setScale(visibleSize.width / backSize.width, visibleSize.height / backSize.height);
-        _back->setColor({255, 199, 118});
+        //_back->setColor({255, 199, 118});
+        
+        _back->setColor({247, 241, 235});
         
         this->addChild(_back);
     }
@@ -103,9 +107,14 @@ bool Page6Layer::init() {
     {
         
         // menu
-        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", CC_CALLBACK_0(Page6Layer::onBackBtnPressed, this));
-        _backBtn->setAnchorPoint({0, 0});
-        _backBtn->setPosition({0, 0});
+        _menuBtn = MenuItemImage::create("btn_menu.png", "btn_menu_on.png", CC_CALLBACK_0(Page6Layer::onMenuBtnPressed, this));
+        _menuBtn->setAnchorPoint({0, 0});
+        _menuBtn->setPosition({0, 0});
+        
+//        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page6Layer::onBackBtnPressed, this));
+//        _backBtn->setAnchorPoint({0, 0});
+//        _backBtn->setPosition({_menuBtn->getContentSize().width, 0});
+//        _backBtn->setEnabled(false);
         
         _replayBtn = MenuItemImage::create("btn_replay.png", "btn_replay_on.png", CC_CALLBACK_0(Page6Layer::onReplayBtnPressed, this));
         _replayBtn->setAnchorPoint({1, 0});
@@ -113,13 +122,13 @@ bool Page6Layer::init() {
         _replayBtn->setPosition(_replayBtn->getPosition() - Point(0, _replayBtn->getContentSize().height));
 
         
-        _menu = Menu::create(_backBtn, _replayBtn, nullptr);
+        _menu = Menu::create(_menuBtn, _replayBtn, nullptr);
         this->addChild(_menu);
         
-        _menu->setPosition({0, -_backBtn->getContentSize().height});
+        _menu->setPosition({0, -_menuBtn->getContentSize().height});
         
         _menu->runAction(Sequence::create(DelayTime::create(0.15),
-                                          EaseBackOut::create(MoveBy::create(0.1, {0, _backBtn->getContentSize().height})),
+                                          EaseBackOut::create(MoveBy::create(0.1, {0, _menuBtn->getContentSize().height})),
                                           NULL));
         
     }
@@ -179,8 +188,8 @@ bool Page6Layer::init() {
         Sprite *sqr = Sprite::create("drag_square.png");
         
         this->addChild(_lettersMenu);
-        _lettersMenu->setPosition({visibleSize.width * 0.5f, _backBtn->getContentSize().height + sqr->getContentSize().height +
-            (visibleSize.height - _top->getContentSize().height - (_backBtn->getContentSize().height + sqr->getContentSize().height)) / 2.0f});
+        _lettersMenu->setPosition({visibleSize.width * 0.5f, _menuBtn->getContentSize().height + sqr->getContentSize().height +
+            (visibleSize.height - _top->getContentSize().height - (_menuBtn->getContentSize().height + sqr->getContentSize().height)) / 2.0f});
         
         _lettersMenu->setPosition(_lettersMenu->getPosition() + Point(0, visibleSize.height * 0.5f));
 
@@ -195,11 +204,15 @@ bool Page6Layer::init() {
     return true;
 }
 
-void Page6Layer::onBackBtnPressed() {
-    SimpleAudioEngine::getInstance()->stopAllEffects();
-    
-    this->popOut();
+void Page6Layer::onMenuBtnPressed() {
+  this->popOut();
 }
+                              
+//void Page6Layer::onBackBtnPressed() {
+//    SimpleAudioEngine::getInstance()->stopAllEffects();
+//    
+//    this->popOut();
+//}
 
 void Page6Layer::popUpANewWord() {
     // remove previous letters first
@@ -232,7 +245,7 @@ void Page6Layer::popUpANewWord() {
             
             sqr->setAnchorPoint({0, 0});
             sqr->setPosition({visibleSize.width * 0.5f - numOfLetters * (sqr->getContentSize().width * 0.5f * kSqrScale) +
-                i * (sqr->getContentSize().width * kSqrScale), _backBtn->getContentSize().height});
+                i * (sqr->getContentSize().width * kSqrScale), _menuBtn->getContentSize().height});
             sqr->setTag(_words[_currentSlide][i]);
             sqr->setScale(kSqrScale);
             

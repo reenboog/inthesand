@@ -21,7 +21,8 @@ public:
     
     virtual bool init();
     
-    void onBackBtnPressed();
+    void onMenuBtnPressed();
+    //void onBackBtnPressed();
     
     bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event);
     void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
@@ -47,7 +48,8 @@ private:
     cocos2d::Sprite *_bottom;
     
     cocos2d::Menu *_menu;
-    cocos2d::MenuItemImage *_backBtn;
+    //cocos2d::MenuItemImage *_backBtn;
+    cocos2d::MenuItemImage *_menuBtn;
     cocos2d::MenuItemImage *_replayBtn;
     
     cocos2d::Menu *_blockMenu;

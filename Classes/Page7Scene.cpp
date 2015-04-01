@@ -47,6 +47,8 @@ Page7Layer::Page7Layer() {
 
     _slideObjectsNode = nullptr;
     _slideTextsNode = nullptr;
+    
+    _menuBtn = nullptr;
 }
 
 Scene* Page7Layer::scene() {
@@ -105,9 +107,14 @@ bool Page7Layer::init() {
     {
         
         // menu
-        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", CC_CALLBACK_0(Page7Layer::onBackBtnPressed, this));
+        _menuBtn = MenuItemImage::create("btn_menu.png", "btn_menu_on.png", CC_CALLBACK_0(Page7Layer::onMenuBtnPressed, this));
+        _menuBtn->setAnchorPoint({0, 0});
+        _menuBtn->setPosition({0, 0});
+        
+        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page7Layer::onBackBtnPressed, this));
         _backBtn->setAnchorPoint({0, 0});
-        _backBtn->setPosition({0, 0});
+        _backBtn->setPosition({_menuBtn->getContentSize().width, 0});
+        _backBtn->setEnabled(false);
         
         _nextBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page7Layer::onNextBtnPressed, this));
         _nextBtn->setAnchorPoint({0, 0});
@@ -124,7 +131,7 @@ bool Page7Layer::init() {
         _muted->setPosition({_muteBtn->getContentSize().width * 0.5f, _muteBtn->getContentSize().height * 0.5f});
         _muted->setVisible(false);
         
-        _menu = Menu::create(_backBtn, _muteBtn, _nextBtn, nullptr);
+        _menu = Menu::create(_menuBtn, _backBtn, _muteBtn, _nextBtn, nullptr);
         this->addChild(_menu);
         
         _menu->setPosition({0, -_backBtn->getContentSize().height});
@@ -197,12 +204,15 @@ void Page7Layer::onBackBtnPressed() {
     
     _nextBtn->setEnabled(true);
     
-    if(_currentSlide < 0) {
-        _menu->setEnabled(false);
-        this->popOut();
-    } else {
-        this->openSlide(_currentSlide);
+    if(_currentSlide == 0) {
+        _backBtn->setEnabled(false);
     }
+    
+    this->openSlide(_currentSlide);
+}
+
+void Page7Layer::onMenuBtnPressed() {
+    this->popOut();
 }
 
 void Page7Layer::onNextBtnPressed() {
@@ -244,6 +254,12 @@ void Page7Layer::openSlide(int slide) {
     
     _slideObjectsNode->removeAllChildren();
     _slideTextsNode->removeAllChildren();
+    
+    if(slide == 0) {
+        _backBtn->setEnabled(false);
+    } else {
+        _backBtn->setEnabled(true);
+    }
 
     //_texts.clear();
     
