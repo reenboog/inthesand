@@ -68,7 +68,9 @@ bool Page2Layer::init() {
         Size backSize = _back->getContentSize();
         
         _back->setScale(visibleSize.width / backSize.width, visibleSize.height / backSize.height);
-        _back->setColor({255, 199, 118});
+        //_back->setColor({255, 199, 118});
+        
+        _back->setColor({247, 241, 235});
         
         this->addChild(_back);
     }
@@ -95,9 +97,14 @@ bool Page2Layer::init() {
     {
         
         // menu
-        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", CC_CALLBACK_0(Page2Layer::onBackBtnPressed, this));
+        _menuBtn = MenuItemImage::create("btn_menu.png", "btn_menu_on.png", CC_CALLBACK_0(Page2Layer::onMenuBtnPressed, this));
+        _menuBtn->setAnchorPoint({0, 0});
+        _menuBtn->setPosition({0, 0});
+        
+        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page2Layer::onBackBtnPressed, this));
         _backBtn->setAnchorPoint({0, 0});
-        _backBtn->setPosition({0, 0});
+        _backBtn->setPosition({_menuBtn->getContentSize().width, 0});
+        _backBtn->setEnabled(false);
         
         _nextBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page2Layer::onNextBtnPressed, this));
         _nextBtn->setAnchorPoint({0, 0});
@@ -106,7 +113,7 @@ bool Page2Layer::init() {
         _nextBtn->setVisible(false);
         _nextBtn->setPosition(_nextBtn->getPosition() - Point(0, _nextBtn->getContentSize().height));
         
-        _menu = Menu::create(_backBtn, _nextBtn, nullptr);
+        _menu = Menu::create(_menuBtn, _backBtn, _nextBtn, nullptr);
         this->addChild(_menu);
 
         _menu->setPosition({0, -_backBtn->getContentSize().height});
@@ -194,6 +201,10 @@ bool Page2Layer::init() {
     return true;
 }
 
+void Page2Layer::onMenuBtnPressed() {
+    this->popOut();
+}
+
 void Page2Layer::onBackBtnPressed() {
     SimpleAudioEngine::getInstance()->stopAllEffects();
 
@@ -201,12 +212,11 @@ void Page2Layer::onBackBtnPressed() {
     
     _nextBtn->setEnabled(true);
     
-    if(_currentSlide < 0) {
-        _menu->setEnabled(false);
-        this->popOut();
-    } else {
-        this->openSlide(_currentSlide);
+    if(_currentSlide == 0) {
+        _backBtn->setEnabled(false);
     }
+    
+    this->openSlide(_currentSlide);
 }
 
 void Page2Layer::onNextBtnPressed() {
@@ -247,6 +257,12 @@ void Page2Layer::openSlide(int slide) {
     SimpleAudioEngine::getInstance()->stopAllEffects();
     
     _slideNode->removeAllChildren();
+    
+    if(slide == 0) {
+        _backBtn->setEnabled(false);
+    } else {
+        _backBtn->setEnabled(true);
+    }
     
     switch(slide) {
         case 0:
