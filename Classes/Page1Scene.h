@@ -20,7 +20,8 @@ public:
     
     virtual bool init();
     
-    void onBackBtnPressed();
+    void onMenuBtnPressed();
+    //void onBackBtnPressed();
     void onCharacterBtnPressed(cocos2d::Ref *btn);
     
     CREATE_FUNC(Page1Layer);
@@ -34,7 +35,8 @@ private:
     
     cocos2d::Menu *_menu;
     cocos2d::Menu *_abcMenu;
-    cocos2d::MenuItemImage *_backBtn;
+    cocos2d::MenuItemImage *_menuBtn;
+    //cocos2d::MenuItemImage *_backBtn;
 };
 
 #endif /* defined(__inthesand__Page1Scene__) */

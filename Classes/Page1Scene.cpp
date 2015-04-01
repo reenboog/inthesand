@@ -26,7 +26,8 @@ Page1Layer::Page1Layer() {
     _back = nullptr;
 
     _menu = nullptr;
-    _backBtn = nullptr;
+    //_backBtn = nullptr;
+    _menuBtn = nullptr;
     
     _top = nullptr;
     _bottom = nullptr;
@@ -61,7 +62,9 @@ bool Page1Layer::init() {
         Size backSize = _back->getContentSize();
         
         _back->setScale(visibleSize.width / backSize.width, visibleSize.height / backSize.height);
-        _back->setColor({255, 199, 118});
+        //_back->setColor({255, 199, 118});
+
+        _back->setColor({247, 241, 235});
         
         this->addChild(_back);
     }
@@ -88,16 +91,19 @@ bool Page1Layer::init() {
     {
         
         // menu
-        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", CC_CALLBACK_0(Page1Layer::onBackBtnPressed, this));
-        _backBtn->setAnchorPoint({0, 0});
-        _backBtn->setPosition({0, 0});
+//        _backBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", CC_CALLBACK_0(Page1Layer::onBackBtnPressed, this));
+//        _backBtn->setAnchorPoint({0, 0});
+//        _backBtn->setPosition({0, 0});
+        _menuBtn = MenuItemImage::create("btn_menu.png", "btn_menu_on.png", CC_CALLBACK_0(Page1Layer::onMenuBtnPressed, this));
+        _menuBtn->setAnchorPoint({0, 0});
+        _menuBtn->setPosition({0, 0});
         
-        _menu = Menu::create(_backBtn, nullptr);
+        _menu = Menu::create(_menuBtn, nullptr);
         this->addChild(_menu);
-        _menu->setPosition({0, -_backBtn->getContentSize().height});
+        _menu->setPosition({0, -_menuBtn->getContentSize().height});
         
         _menu->runAction(Sequence::create(DelayTime::create(0.15),
-                                          EaseBackOut::create(MoveBy::create(0.1, {0, _backBtn->getContentSize().height})),
+                                          EaseBackOut::create(MoveBy::create(0.1, {0, _menuBtn->getContentSize().height})),
                                           NULL));
 
     }
@@ -149,7 +155,12 @@ void Page1Layer::onCharacterBtnPressed(Ref *btn) {
     SimpleAudioEngine::getInstance()->playEffect(StringUtils::format("abc_name_sound_word_%i.mp3", tag).c_str());
 }
 
-void Page1Layer::onBackBtnPressed() {
+//void Page1Layer::onBackBtnPressed() {
+//    _menu->setEnabled(false);
+//    this->popOut();
+//}
+
+void Page1Layer::onMenuBtnPressed() {
     _menu->setEnabled(false);
     this->popOut();
 }
