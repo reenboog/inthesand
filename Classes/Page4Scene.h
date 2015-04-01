@@ -21,6 +21,7 @@ public:
     
     virtual bool init();
     
+    void onMenuBtnPressed();
     void onBackBtnPressed();
     void onNextBtnPressed();
     void onColorBtnPressed(cocos2d::Ref *btn);
@@ -52,6 +53,7 @@ private:
     cocos2d::MenuItemImage *_blackBtn;
     
     cocos2d::Menu *_menu;
+    cocos2d::MenuItemImage *_menuBtn;
     cocos2d::MenuItemImage *_backBtn;
     cocos2d::MenuItemImage *_nextBtn;
     
