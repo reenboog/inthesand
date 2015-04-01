@@ -76,7 +76,9 @@ bool Page7Layer::init() {
         Size backSize = _back->getContentSize();
         
         _back->setScale(visibleSize.width / backSize.width, visibleSize.height / backSize.height);
-        _back->setColor({255, 199, 118});
+        //_back->setColor({255, 199, 118});
+        
+        _back->setColor({247, 241, 235});
         
         this->addChild(_back);
     }
@@ -216,7 +218,7 @@ void Page7Layer::onNextBtnPressed() {
 }
 
 void Page7Layer::popOut() {
-    SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    SimpleAudioEngine::getInstance()->stopAllEffects();
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     

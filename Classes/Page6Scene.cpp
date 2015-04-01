@@ -23,6 +23,8 @@ using std::string;
 
 #define kNumfOfLetters 26
 
+#define kSqrScale 1.25f
+
 Page6Layer::~Page6Layer() {
     
 }
@@ -133,7 +135,7 @@ bool Page6Layer::init() {
     _words.push_back({3, 0, 3}); // dad
     _words.push_back({6, 17, 4, 4, 13}); // green
     _words.push_back({24, 4, 11, 11, 14, 22}); // yellow
-    _words.push_back({1, 11, 0, 2, 10}); // red
+    _words.push_back({1, 11, 0, 2, 10}); // black
     
     // letters menu
     
@@ -220,6 +222,8 @@ void Page6Layer::popUpANewWord() {
             _replayBtn->setEnabled(true);
         }), NULL));
     } else {
+        SimpleAudioEngine::getInstance()->playEffect(StringUtils::format("make_a_word_%i.mp3", _currentSlide).c_str());
+        
         int numOfLetters = _words[_currentSlide].size();
         
         for(int i = 0; i < numOfLetters; ++i) {
@@ -227,8 +231,10 @@ void Page6Layer::popUpANewWord() {
             this->addChild(sqr);
             
             sqr->setAnchorPoint({0, 0});
-            sqr->setPosition({visibleSize.width * 0.5f - numOfLetters * sqr->getContentSize().width * 0.5f + i * sqr->getContentSize().width, _backBtn->getContentSize().height});
+            sqr->setPosition({visibleSize.width * 0.5f - numOfLetters * (sqr->getContentSize().width * 0.5f * kSqrScale) +
+                i * (sqr->getContentSize().width * kSqrScale), _backBtn->getContentSize().height});
             sqr->setTag(_words[_currentSlide][i]);
+            sqr->setScale(kSqrScale);
             
             Sprite *img = Sprite::create(StringUtils::format("ch_small_%i.png", _words[_currentSlide][i]));
             sqr->addChild(img);
@@ -333,10 +339,24 @@ void Page6Layer::onTouchEnded(Touch *touch, Event *event) {
     }
     
     if(wordComplete == true) {
-        // play a sound effect
-        SimpleAudioEngine::getInstance()->playEffect("great.mp3");
-        _currentSlide++;
-        this->popUpANewWord();
+        this->block();
+
+        SimpleAudioEngine::getInstance()->playEffect(StringUtils::format("make_a_word_%i.mp3", _currentSlide).c_str());
+        
+        this->runAction(Sequence::create(DelayTime::create(1.5),
+                                         CallFunc::create([=]() {
+                                            SimpleAudioEngine::getInstance()->playEffect("great.mp3");
+                                        }),
+                                        DelayTime::create(1),
+                                        CallFunc::create([=]() {
+                                            this->unblock();
+                                            
+                                            // play a sound effect
+                                            
+                                            _currentSlide++;
+                                            this->popUpANewWord();
+                                        }),
+                                        NULL));
     }
     
     if(_currentLetter != nullptr) {
@@ -373,7 +393,7 @@ void Page6Layer::showTutorial() {
     hand->setScale(0);
     
     Point bPos = _lettersMenu->getPosition() + _bBtn->getPosition();
-    Point bEndPos = _boxes[0]->getPosition() + Point(_boxes[0]->getContentSize().width * 0.5f, _boxes[0]->getContentSize().height * 0.5f);
+    Point bEndPos = _boxes[0]->getPosition() + Point(_boxes[0]->getContentSize().width * 0.5f * kSqrScale, _boxes[0]->getContentSize().height * 0.5f * kSqrScale);
     
     hand->runAction(Sequence::create(DelayTime::create(0.6),
                                      EaseBackOut::create(ScaleTo::create(0.2, 1)),
@@ -385,6 +405,7 @@ void Page6Layer::showTutorial() {
                                         
                                         hand->addChild(b);
                                         b->setPosition({0, hand->getContentSize().height});
+                                        b->setScale(kSqrScale);
                                      }),
                                      MoveTo::create(1, bEndPos),
                                      DelayTime::create(0.3),

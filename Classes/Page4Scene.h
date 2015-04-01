@@ -10,6 +10,7 @@
 #define __inthesand__Page4Scene__
 
 //#include <map>
+#include "cocos2d.h"
 
 class Page4Layer: public cocos2d::Layer {
 public:

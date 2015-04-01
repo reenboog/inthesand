@@ -9,6 +9,8 @@
 #ifndef __inthesand__Page1Scene__
 #define __inthesand__Page1Scene__
 
+#include "cocos2d.h"
+
 class Page1Layer: public cocos2d::Layer {
 public:
     Page1Layer();

@@ -10,6 +10,7 @@
 #define __inthesand__Page7Scene__
 
 #include <vector>
+#include "cocos2d.h"
 
 class Page7Layer: public cocos2d::Layer {
 public:
