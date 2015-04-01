@@ -21,6 +21,7 @@ public:
     
     virtual bool init();
     
+    void onMenuBtnPressed();
     void onBackBtnPressed();
     void onNextBtnPressed();
     void onCharacterBtnPressed(cocos2d::Ref *btn);
@@ -56,6 +57,7 @@ private:
     std::vector<cocos2d::Node*> _letters;
     
     cocos2d::Menu *_menu;
+    cocos2d::MenuItemImage *_menuBtn;
     cocos2d::MenuItemImage *_backBtn;
     cocos2d::MenuItemImage *_nextBtn;
     

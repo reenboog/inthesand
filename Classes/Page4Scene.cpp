@@ -124,7 +124,6 @@ bool Page4Layer::init() {
         _backBtn->setPosition({_menuBtn->getContentSize().width, 0});
         _backBtn->setEnabled(false);
 
-        
         _nextBtn = MenuItemImage::create("btn_back.png", "btn_back_on.png", "btn_back_disabled.png", CC_CALLBACK_0(Page4Layer::onNextBtnPressed, this));
         _nextBtn->setAnchorPoint({0, 0});
         _nextBtn->setPosition({visibleSize.width, 0});
