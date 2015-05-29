@@ -9,6 +9,7 @@
 #include "Page6Scene.h"
 
 #include "GameLayer.h"
+#include "MainMenu.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
@@ -272,7 +273,7 @@ void Page6Layer::popOut() {
     
     this->runAction(Sequence::create(DelayTime::create(0.12),
                                      CallFunc::create([this]() {
-        Director::getInstance()->replaceScene(GameLayer::scene());
+        Director::getInstance()->replaceScene(MainMenu::scene());
     }), NULL));
 }
 

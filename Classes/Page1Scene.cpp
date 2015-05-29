@@ -11,6 +11,8 @@
 #include "GameLayer.h"
 #include "SimpleAudioEngine.h"
 
+#include "MainMenu.h"
+
 using namespace cocos2d;
 using namespace CocosDenshion;
 
@@ -178,6 +180,6 @@ void Page1Layer::popOut() {
     
     this->runAction(Sequence::create(DelayTime::create(0.12),
                                      CallFunc::create([this]() {
-        Director::getInstance()->replaceScene(GameLayer::scene());
+        Director::getInstance()->replaceScene(MainMenu::scene());
     }), NULL));
 }

@@ -59,6 +59,10 @@
 		B82D04741A641EB400BCEF26 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = B82D04721A641EB400BCEF26 /* Res */; };
 		B84C68561AB83FC000299E90 /* Page6Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84C68541AB83FC000299E90 /* Page6Scene.cpp */; };
 		B84C68571AB83FC000299E90 /* Page6Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84C68541AB83FC000299E90 /* Page6Scene.cpp */; };
+		B862A7B51ACC14850058D51F /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B862A7B31ACC14850058D51F /* Splash.cpp */; };
+		B862A7B61ACC14850058D51F /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B862A7B31ACC14850058D51F /* Splash.cpp */; };
+		B86BA0751ADD8AB400005561 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B86BA0731ADD8AB300005561 /* MainMenu.cpp */; };
+		B86BA0761ADD8AB400005561 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B86BA0731ADD8AB300005561 /* MainMenu.cpp */; };
 		B8AEEFF71AAB639100C6313C /* Page1Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */; };
 		B8AEEFF81AAB639100C6313C /* Page1Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */; };
 		B8AEEFFE1AAC995100C6313C /* Page2Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8AEEFFC1AAC995100C6313C /* Page2Scene.cpp */; };
@@ -167,6 +171,10 @@
 		B82D04721A641EB400BCEF26 /* Res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Res; path = ../Res; sourceTree = "<group>"; };
 		B84C68541AB83FC000299E90 /* Page6Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page6Scene.cpp; sourceTree = "<group>"; };
 		B84C68551AB83FC000299E90 /* Page6Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page6Scene.h; sourceTree = "<group>"; };
+		B862A7B31ACC14850058D51F /* Splash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Splash.cpp; sourceTree = "<group>"; };
+		B862A7B41ACC14850058D51F /* Splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Splash.h; sourceTree = "<group>"; };
+		B86BA0731ADD8AB300005561 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
+		B86BA0741ADD8AB400005561 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		B8AEEFF51AAB639100C6313C /* Page1Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page1Scene.cpp; sourceTree = "<group>"; };
 		B8AEEFF61AAB639100C6313C /* Page1Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page1Scene.h; sourceTree = "<group>"; };
 		B8AEEFFC1AAC995100C6313C /* Page2Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page2Scene.cpp; sourceTree = "<group>"; };
@@ -313,6 +321,10 @@
 				B82D045D1A641E8600BCEF26 /* AppDelegate.h */,
 				B82D045E1A641E8600BCEF26 /* Constants.h */,
 				B82D045F1A641E8600BCEF26 /* EventListenerWatcher.h */,
+				B862A7B31ACC14850058D51F /* Splash.cpp */,
+				B862A7B41ACC14850058D51F /* Splash.h */,
+				B86BA0731ADD8AB300005561 /* MainMenu.cpp */,
+				B86BA0741ADD8AB400005561 /* MainMenu.h */,
 				B82D04601A641E8600BCEF26 /* GameConfig.cpp */,
 				B82D04611A641E8600BCEF26 /* GameConfig.h */,
 				B82D04621A641E8600BCEF26 /* GameLayer.cpp */,
@@ -435,7 +447,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 763GRN5R24;
+						DevelopmentTeam = Y8JBT267VG;
 					};
 				};
 			};
@@ -528,9 +540,11 @@
 				B82D04681A641E8600BCEF26 /* AppDelegate.cpp in Sources */,
 				B8D345FD1AB9AD700019F875 /* Page7Scene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				B86BA0751ADD8AB400005561 /* MainMenu.cpp in Sources */,
 				B8AEEFFE1AAC995100C6313C /* Page2Scene.cpp in Sources */,
 				B82D04701A641E8600BCEF26 /* Shared.cpp in Sources */,
 				B82D046E1A641E8600BCEF26 /* Localized.cpp in Sources */,
+				B862A7B51ACC14850058D51F /* Splash.cpp in Sources */,
 				B8AEF0021AAECC0200C6313C /* Page3Scene.cpp in Sources */,
 				B8AEF0061AB0B21500C6313C /* Page4Scene.cpp in Sources */,
 				B82D046A1A641E8600BCEF26 /* GameConfig.cpp in Sources */,
@@ -549,7 +563,9 @@
 			files = (
 				B8D345FE1AB9AD700019F875 /* Page7Scene.cpp in Sources */,
 				B84C68571AB83FC000299E90 /* Page6Scene.cpp in Sources */,
+				B862A7B61ACC14850058D51F /* Splash.cpp in Sources */,
 				B8C067441A9C34EB00721C0A /* Page0Scene.cpp in Sources */,
+				B86BA0761ADD8AB400005561 /* MainMenu.cpp in Sources */,
 				B82D04711A641E8600BCEF26 /* Shared.cpp in Sources */,
 				B82D046F1A641E8600BCEF26 /* Localized.cpp in Sources */,
 				B8AEF0071AB0B21500C6313C /* Page4Scene.cpp in Sources */,
@@ -583,7 +599,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Noah Chen (G43C735848)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Noah Chen (G43C735848)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -602,9 +619,10 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "inthesand iOS";
+				PROVISIONING_PROFILE = "503acc0a-fc39-43a5-9e6e-fa9c35c5e2e0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -616,7 +634,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Noah Chen (Y8JBT267VG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Noah Chen (Y8JBT267VG)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -633,9 +652,10 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "inthesand iOS";
+				PROVISIONING_PROFILE = "d58e54fa-d97c-4271-a6be-68acf28a39b0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

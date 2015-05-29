@@ -1,6 +1,7 @@
 
 #include "AppDelegate.h"
-#include "GameLayer.h"
+//#include "GameLayer.h"
+#include "Splash.h"
 #include "SimpleAudioEngine.h"
 #include "GameConfig.h"
 #include "Localized.h"
@@ -48,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     Localized::load();
 
     // create a scene. it's an autorelease object
-    auto scene = GameLayer::scene();
+    auto scene = Splash::scene();
 
     // run
     director->runWithScene(scene);

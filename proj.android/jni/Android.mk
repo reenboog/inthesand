@@ -24,12 +24,10 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_extension_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
 
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,.)
 
 $(call import-module,audio/android)
-$(call import-module,network)
 $(call import-module,extensions)
